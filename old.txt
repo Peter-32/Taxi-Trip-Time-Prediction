@@ -1,0 +1,33 @@
+Explore standA/B values
+Explore timestamps count by hour (resample)
+Remind self to ignore the Kaggle test set
+Make a python function to get the closest location to a coordinate
+Add end_state to end of each polyline
+Add the taxi time defined for each row
+Set up CV code (5-Fold)
+Markov chain transition states
+Take a note that each step in Markov chain is 15 seconds longer in travel time
+Map all polylines to locations based on closest location
+Find the expected number of steps with the E(X) formula or a markov function
+One hot encoding for B, C daytype (drop A column) (Just use SQL not OneHotEncoding function)
+Create time_taken using polyline (X 1) * 15 (seconds)
+Review, consider what to do to clean the test set, etc
+Submit to evaluation based on the test data polyline (set to 0 for missing data)
+Compare submitted results
+Create a feature for average trip length given past activity (exclude current) (from Origin_call and origin_stand).  By default use average across all unknowns.
+Create average trip length from past taxi_id (exclude current)
+Drop origin_call, drop origin_stand, drop trip_id. drop Taxi_id
+Create day based features (skip holiday for now, using the one given here)
+Create average time for prior trips this day feature
+feature: average taxi time for the current day of week and hour of day of departure (if no past records use avg for hour of day)
+Some baseline based on only the polyline and not considering location
+Run 32 regression models and evaluate on test set
+Compare submitted results
+Some baseline based on only the polyline and features and not considering location
+Join to meta based on closeness of each latitude and longitude
+Convert polyline to a list of location names (closest location for each)
+Determine the amount of time it takes to transition from one location to the next
+  populate a table with all transitions
+  Create a summary table that takes the average of these values
+Some baseline based on only the polyline and features and considering location
+Read Kaggle forums
