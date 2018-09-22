@@ -1,14 +1,8 @@
-# taxi_trip_time_prediction
+# Taxi-Trip-Time-Prediction
 
-_
+### Notes
 
-### Prerequisites
-
-_
-
-### Installing
-
-_
+This project is in development.
 
 ### Goal
 
@@ -43,41 +37,40 @@ https://www.kaggle.com/c/pkdd-15-taxi-trip-time-prediction-ii/data
 
 - At every path step, create a row and target, time to arrival
 
-### Steps
-- ETL (Training Dataset)
-  - Get the time taken in total
+### Today's Goal
 
+- Plan the steps of the project
+
+### Steps
+
+- ETL (Training Dataset)
+  - X Get the time taken in total
+  - We manually edited the 41st line of the metadata file to fix a typo
   - Get the closest locations "polyline_names"
-  - Use "polylines_names" to create a markov chain that finds the E(X) steps to end given any starting location (Used as a feature later) (It has about 60 unique values, save this in a table)    
+  - Use "polylines_names" to create a markov chain
+  - With the markov chain, find the E(X) steps to end given any starting location (Used as a feature later) (It has about 60 unique values)
+  - Save the ~60 unique locations and their E(X) steps to end in a CSV markov_expected_steps.csv
+  - Save the transformed_train.csv CSV with polyline_names
 - ETL (Test Dataset)
   - Get the closest locations "polyline_names"
+  - Save the transformed_test.csv CSV with polyline_names
 - Explore
   - Create a visualization for the Markov Chain for presentation later (A Simple transition matrix heatmap is probably good enough)
-  - consider dropping rows with missing data
+  - consider dropping rows with missing data.  Found we should drop it.
 - Prepare Data
   - Clean
     - Drop rows with missing data if it is a small amount
     - Consider cleaning call_type or day_type if bad values
     - Consider cleaning origin_call or origin_stand if something other than NULL and the regular values
   - New Rows/Columns
-
     - Get average time taken for call_typeA/B/C (3 columns) (Take one time per trip_id and average correctly)
-    - Get average time taken for those with that origin_call or origin_stand (Including NA) (One column, combine them into one column) (Take one time per trip_id and average correctly)       
+    - Get average time taken for those with that origin_call or origin_stand (Including NA) (One column, combine them into one column) (Take one time per trip_id and average correctly)
     - add lots of day features (See MLM blogpost for ideas)
-    - Average path length given each of those day features, then drop the day features (Take one time per trip_id and average correctly)  
+    - Average path length given each of those day features, then drop the day features (Take one time per trip_id and average correctly)
     - Turn each row into many rows (# of rows is the polylines length of coordinates) and label each row number
     - Given the row number, trim polylines to be the length of coordinates of that number
-    - Use the newly created table and use that value for the first step in the journey  
+    - Use the newly created table and use that value for the first step in the journey
     - Use that created table and "polyline_names" for the middle step in the journey so far
     - Use that created table and "polyline_names" for the last step in the journey so far
-    - Drop polyline_names    
+    - Drop polyline_names
     - drop taxi_id and trip_id
-
-
-
-- Explore
-  - the distribution of time taken
-- Make a python function to get the closest location to a coordinate
-- Create a row for each location path
-- Add the taxi time remaining for each row
-- Feature: Use markov chain to find the E(X) steps to end given starting location (add end step to end of each path)
