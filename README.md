@@ -45,8 +45,9 @@ https://www.kaggle.com/c/pkdd-15-taxi-trip-time-prediction-ii/data
 
 - ETL (Training Dataset)
   - X Get the time taken in total
-  - We manually edited the 41st line of the metadata file to fix a typo
-  - Get the closest locations "polyline_names"
+  - X We manually edited the 41st line of the metadata file to fix a typo
+  - X Create a function to get the closest location
+  - X Get the closest locations "polyline_names"
   - Use "polylines_names" to create a markov chain
   - With the markov chain, find the E(X) steps to end given any starting location (Used as a feature later) (It has about 60 unique values)
   - Save the ~60 unique locations and their E(X) steps to end in a CSV markov_expected_steps.csv
