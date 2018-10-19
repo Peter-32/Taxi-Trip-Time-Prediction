@@ -74,44 +74,16 @@ for i in range(df.shape[0]):
     print(i)
 
 
-running closest_location hundreds of times is slow
-slow
-    fast still
-that's fast
+
 j=332
 #df.loc[:, 'd'] = polyline_names_list
 #df.head()
 
 # can probably speed it up at some point.  maybe closest_location
 
-.03 seconds times 300 times is 9 seconds
-ok
-hmm
 
-data structures and algorithms problem
 
-????ho
 
-Should we move on or try to speed up this lookup?
-We should sort the latitude and longitude for quicker searches
-what do you think would be better ?
-why not radix
-no i am not sure. i just remember you told it's fast
-yeah maybe, I forget
-hmm
-the radix I know about is a sort, we could sort it once.  We need to do thousands of searches.  I'll try googling
-binary search for close latitudes or longitudes maybe
-how about we search what would be good ways to do a quicker search and come back tomorrow with ideas ?
-we can work late tomorrow
-okay okay :)
-
-put that code here :)
-i will refer it
-thank you
-
-is this saved ??
-
-yeah. pushing to github now
 https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.KDTree.html
 # >>> from scipy import spatial
 # >>> airports = [(10,10),(20,20),(30,30),(40,40)]
@@ -120,13 +92,3 @@ https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.KDTree
 # (array([ 1.41421356]), array([1]))
 # Where 1.41421356 is the distance between the queried point
 # the nearest neighbour and 1 is the index of the neighbour.
-
-that will do it
-
-metadata_df.head()
-ID	Descricao	Latitude	Longitude
-# 0	1	Agra	41.1771457135	-8.609670
-# 1	2	Alameda	41.15618964	-8.591064
-# 2	3	Aldoar	41.1705249231	-8.665876
-# 3	4	Alfândega	41.1437639911	-8.621803
-# 4	5	Amial	41.1835097223	-8.612726
